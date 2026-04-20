@@ -22,23 +22,23 @@ client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
 # AUTOSTART LIMPIO
 # =========================
 
+
 exec_always --no-startup-id pkill picom
 exec_always --no-startup-id pkill polybar
 
 exec_always --no-startup-id sh -c "pkill picom; picom --config ~/.config/picom.conf 2>/dev/null"
 exec_always --no-startup-id sh -c "pkill polybar; polybar main 2>/dev/null"
 exec_always --no-startup-id ~/setwall.sh
-
+bindsym $mod+l exec i3lock -i ~/.cache/lock.png
 # =========================
 # TERMINAL
 # =========================
 bindsym $mod+Return exec kitty
-
+exec_always --no-startup-id ~/.local/bin/net-watch.sh
 # =========================
 # LAUNCHER
 # =========================
 bindsym $mod+d exec rofi -show drun
-
 # =========================
 # CERRAR VENTANA
 # =========================

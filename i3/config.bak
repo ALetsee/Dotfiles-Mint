@@ -1,0 +1,55 @@
+113;9uset $mod Mod4
+
+# Bordes
+# Bordes
+default_border pixel 2
+default_floating_border pixel 2
+
+
+gaps inner 10
+gaps outer 5
+
+
+# Bordes cuando está en fullscreen (sin borde)
+for_window [class=".*"] border pixel 2
+
+font pango:monospace 10
+
+# lanzar cosas al iniciar
+exec_always --no-startup-id picom
+exec_always --no-startup-id feh --bg-fill ~/Imágenes/wallpaper.jpg
+exec_always --no-startup-id polybar main
+exec_always --no-startup-id picom --config ~/.config/picom.conf
+# abrir terminal
+bindsym $mod+Return exec kitty
+
+# rofi (launcher tipo windows)
+bindsym $mod+d exec rofi -show drun
+
+# mover ventanas
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# cerrar ventana
+bindsym $mod+Shift+q kill
+
+
+# layout
+bindsym $mod+f fullscreen toggle
+
+#Colores
+
+font pango:monospace 10
+
+# Bordes negros minimalistas
+client.focused          #000000 #000000 #FFFFFF #000000 #000000
+client.unfocused        #000000 #000000 #AAAAAA #000000 #000000
+client.focused_inactive #000000 #000000 #CCCCCC #000000 #000000
+client.urgent           #FF0000 #FF0000 #FFFFFF #000000 #FF0000
+
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"

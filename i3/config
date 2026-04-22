@@ -21,15 +21,10 @@ client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
 # =========================
 # AUTOSTART LIMPIO
 # =========================
-
-
-exec_always --no-startup-id pkill picom
-exec_always --no-startup-id pkill polybar
-
-exec_always --no-startup-id sh -c "pkill picom; picom --config ~/.config/picom.conf 2>/dev/null"
-exec_always --no-startup-id sh -c "pkill polybar; polybar main 2>/dev/null"
-exec_always --no-startup-id ~/setwall.sh
-bindsym $mod+l exec i3lock -i ~/.cache/lock.png
+exec --no-startup-id sh -c "sleep 0.3; picom --config ~/.config/picom.conf"
+exec --no-startup-id sh -c "sleep 0.5; polybar main"
+exec --no-startup-id ~/setwall.sh
+exec_always --no-startup-id ~/.local/bin/net-watch.sh
 # =========================
 # TERMINAL
 # =========================
@@ -40,6 +35,12 @@ exec_always --no-startup-id ~/.local/bin/net-watch.sh
 # =========================
 bindsym $mod+d exec rofi -show drun
 # =========================
+
+# =========================
+# SCREENSHOT (FLAMESHOT)
+# =========================
+bindsym $mod+Shift+t exec flameshot gui
+
 # CERRAR VENTANA
 # =========================
 bindsym $mod+q kill

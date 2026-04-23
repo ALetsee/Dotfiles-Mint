@@ -22,8 +22,8 @@ client.urgent           #ff0000 #ff0000 #ffffff #ff0000 #ff0000
 # AUTOSTART LIMPIO
 # =========================
 exec --no-startup-id sh -c "sleep 0.3; picom --config ~/.config/picom.conf"
-exec --no-startup-id sh -c "sleep 0.5; polybar main"
-exec --no-startup-id ~/setwall.sh
+exec_always --no-startup-id sh -c "pkill -x polybar; sleep 0.5; polybar main"
+exec --no-startup-id sh -c "sleep 1; wal -R -q; ~/.local/bin/apply-theme.sh"
 exec_always --no-startup-id ~/.local/bin/net-watch.sh
 # =========================
 # TERMINAL
@@ -35,6 +35,12 @@ exec_always --no-startup-id ~/.local/bin/net-watch.sh
 # =========================
 bindsym $mod+d exec rofi -show drun
 # =========================
+#==========================
+#Wallpapers
+#=========================
+
+
+bindsym $mod+o exec ~/.local/bin/wallpaper-picker.sh
 
 # =========================
 # SCREENSHOT (FLAMESHOT)

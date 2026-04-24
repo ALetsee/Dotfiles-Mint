@@ -7,7 +7,7 @@ VOL_ACTUAL=$(wpctl get-volume "$SINK" | awk '{printf "%d", $2 * 100}')
 
 NUEVO_VOL=$(zenity --scale \
     --title="Volumen" \
-    --text="Ajustar volumen" \
+    --text=" Ajustar volumen" \
     --value="$VOL_ACTUAL" \
     --min-value=0 \
     --max-value=100 \
